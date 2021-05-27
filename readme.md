@@ -1,6 +1,6 @@
-# EBOOK
+# IBOOK
 
-EBOOK est un site ou on peut lire et commenter des livres
+IBOOK est un site ou on peut lire et commenter des livres
 
 ## Environnement de développement
 

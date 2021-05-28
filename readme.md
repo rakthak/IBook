@@ -8,16 +8,23 @@ IBOOK est un site ou on peut lire et commenter des livres
 
 * PHP Minimun 7.2
 * Composer
+* Webpack encore
+* bootstrap 5
 
 ### Lancer l'environnement de développement
 
 
 ```
-php bin/console doctrine:database:create
-symfony server:start
+symfony server:start ou symfony serve -d (pour travailler dans le même terminal 
 ```
 
 ## Intégration des tables
+
+### Connection à la base de données
+```
+php bin/console doctrine:database:create
+```
+
 
 ### Création des entités
 

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">CONNECTEZ VOUS</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url(https://picsum.photos/600)"></div>
+						<div class="login-wrap p-4 p-md-5">
+							<div class="d-flex">
+								<div class="w-100">
+									<h3 class="mb-4">Connection</h3>
+								</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-facebook"></span>
+										</a>
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-twitter"></span>
+										</a>
+									</p>
+								</div>
+							</div>
+							<form method="post">
+								{% if error %}
+									<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+								{% endif %}
+
+								{% if app.user %}
+									<div class="mb-3">
+										Vous êtes connectez sur
+										{{ app.user.username }},
+										<a href="{{ path('app_logout') }}">Logout</a>
+									</div>
+								{% endif %}
+
+
+								<label for="inputEmail">Email</label>
+								<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+								<label for="inputPassword">Password</label>
+								<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+								<button class="btn btn-lg btn-primary" type="submit">
+									Connection
+								</button>
+							</form>
+							<p class="text-center">Pas menbre?
+								<a data-toggle="tab" href="{{ path ('app_register')}}">Inscrivez vous</a>
+							</p>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

@@ -39,3 +39,6 @@ symfony console make:migartion
 ```
 php bin/console doctrine:migrations:migrate
 ```
+
+### Mise de l'authentification
+```

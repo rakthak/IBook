@@ -4,29 +4,34 @@
 {% endblock %}
 
 {% block body %}
-	<!-- ======= Portfolio Section ======= -->
-	<section id="portfolio" class="portfolio">
-		<div class="container" data-aos="fade-up">
-			<div class="section-header">
-				<h3 class="section-title">DERNIERS AJOUTS</h3>
-			</div>
+
+	<div class="row">
+		{% for book in lastBooks %}
+
+			<div class="col-3">
+				<section id="portfolio" class="portfolio ">
+					<div class="container" data-aos="fade-up">
 
 
-			<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+						<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-				<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-					<img src="https://picsum.photos/500" class="img-fluid" alt="">
-					<div class="portfolio-info">
-						<h4>App 1</h4>
-						<p>App</p>
+							<div class="portfolio-item filter-app">
+								<img src="{{book.image}}" class="img-fluid" alt="">
+								<div class="portfolio-info">
+									<h4>{{book.title}}</h4>
+									<h4>{{book.author}}</h4>
+									<h4>Publié le
+										{{book.CreatedAt|date ('d/m/y')}}</h4>
+
+								</a>
+							</div>
+						</div>
 
 					</div>
-				</div>
 
-
+				</section>
 			</div>
 
-		</div>
-	</section>
-	<!-- End Portfolio Section -->
+		{% endfor %}
+	</div>
 {% endblock %}

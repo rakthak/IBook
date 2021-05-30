@@ -51,7 +51,7 @@ class AppFixtures extends Fixture
                     ->setAuthor($faker->name())
                     ->setImage("https://picsum.photos/500")
                     ->setResume($faker->realText($maxNbChars = 200, $indexSize = 2))
-                    ->setCreatedAt(new \DateTime())
+                    ->setCreatedAt($faker->dateTimeBetween('-3 month', 'now'))
                     ->setUser($user);
                 $manager->persist($book);
             }

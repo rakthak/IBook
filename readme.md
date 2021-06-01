@@ -1,12 +1,12 @@
 # IBOOK
 
-IBOOK est un site ou on peut lire et commenter des livres
+IBOOK est bibliothèque de livres. On doit être inscrit pour pouvoir se connecter et ainsi lire les livres  
 
 ## Environnement de développement
 
 ### Installation
-
-* PHP Minimun 7.2
+* SYMFONY (5.2.9)
+* PHP Minimun 7.2 actuellement 8.0.2
 * Composer
 * Webpack encore
 * bootstrap 5
@@ -20,25 +20,25 @@ symfony server:start ou symfony serve -d (pour travailler dans le même terminal
 
 ## Intégration des tables
 
-### Connection à la base de données
+### a)Connection à la base de données
 ```
 php bin/console doctrine:database:create
 ```
 
 
-### Création des entités
+### b)Création des entités
 
 ```
 symfony console make:entity
 ```
-### Création des requêtes dans la migration
+### c)Création des requêtes dans la migration
 ```
 symfony console make:migartion
 ```
-### Création des tables dans phpMyAdmin
+### d)Création des tables dans phpMyAdmin
 ```
 php bin/console doctrine:migrations:migrate
 ```
 
-### Mise de l'authentification
+## Mise en place  de l'authentification
 ```

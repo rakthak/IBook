@@ -16,5 +16,5 @@ import './bootstrap';
 
 import './js/main';
 import './js/popper';
-import './js/portFolio';
+//import './js/portFolio';
 

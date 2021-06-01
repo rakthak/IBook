@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<div class="row justify-content-md-center mt-4 cardHeight ">
+		{% for book in books %}
+			<div class="col-3  mb-4">
+				<div class="card mb-4 cardHeight">
+					<h4 class="card-header text-center">{{book.title}}
+					</h4>
+					<div class="card-body">
+						<div class="card-body text-center">
+							<h6 class="text-center">Ecrit le
+								{{book.author}}
+							</h6>
+							{# <h6 class="card-subtitle text-muted ">from the</h6> #}
+							<p class="card-subtitle text-muted ">Created on
+								{{book.createdAt | date('d/m/Y' ) }}
+							</p>
+						</div>
+						<img src="{{book.image}}" alt="" class=" articleImage text-center mt-2">
+						<div class="card-body text-center ">
+							<a href="" class="card-link btn btn-secondary">Read</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

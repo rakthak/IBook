@@ -4,34 +4,50 @@
 {% endblock %}
 
 {% block body %}
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">IBOOK</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path ('app_logout')}}">DECONNEXION</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path ('allBooks')}}">LIVRES</a>
+					</li>
+				</ul>
 
-	<div class="row">
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="row justify-content-md-center mt-4 cardHeight ">
 		{% for book in lastBooks %}
-
-			<div class="col-3">
-				<section id="portfolio" class="portfolio ">
-					<div class="container" data-aos="fade-up">
-
-
-						<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-							<div class="portfolio-item filter-app">
-								<img src="{{book.image}}" class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>{{book.title}}</h4>
-									<h4>{{book.author}}</h4>
-									<h4>Publié le
-										{{book.CreatedAt|date ('d/m/y')}}</h4>
-
-								</a>
-							</div>
+			<div class="col-3  mb-4">
+				<div class="card mb-4 cardHeight">
+					<h4 class="card-header text-center">{{book.title}}
+					</h4>
+					<div class="card-body">
+						<div class="card-body text-center">
+							<h6 class="text-center">Ecrit le
+								{{book.author}}
+							</h6>
+							{# <h6 class="card-subtitle text-muted ">from the</h6> #}
+							<p class="card-subtitle text-muted ">Created on
+								{{book.createdAt | date('d/m/Y' ) }}
+							</p>
 						</div>
+						<img src="{{book.image}}" alt="" class=" articleImage text-center mt-2">
 
 					</div>
-
-				</section>
+				</div>
 			</div>
-
 		{% endfor %}
 	</div>
+
+
 {% endblock %}

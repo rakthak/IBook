@@ -25,7 +25,7 @@ class BookController extends AbstractController
         $book = $repo->findAll();
 
         if (!$book) {
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('book');
         }
 
         return $this->render('book/allBooks.html.twig', [
@@ -40,7 +40,7 @@ class BookController extends AbstractController
 
 
         if (!$book) {
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('book');
         }
 
         return $this->render('book/readBook.html.twig', [

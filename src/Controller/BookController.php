@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BookController extends AbstractController
 {
+    //route vers les 12 derniers ajouts
     #[Route('/book', name: 'book')]
     public function index(BookRepository $bookRepository): Response
     {
@@ -18,6 +19,7 @@ class BookController extends AbstractController
         ]);
     }
 
+    //route vers tous les livres
     #[Route('/allBooks', name: 'allBooks')]
     public function allBooks(BookRepository $bookRepository): Response
     {
@@ -33,6 +35,7 @@ class BookController extends AbstractController
         ]);
     }
 
+    //route vers la lecture d'un livre par son {id}
     #[Route('/allBooks/{id}', name: 'read')]
     public function readBook(BookRepository $bookRepository, $id): Response
     {

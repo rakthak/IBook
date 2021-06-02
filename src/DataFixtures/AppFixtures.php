@@ -22,6 +22,7 @@ class AppFixtures extends Fixture
     }
     public function load(ObjectManager $manager)
     {
+
         $users = [];
         //Création d'un user
         $faker = Factory::create('fr_FR');

@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 {% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
 
-{% block title %}Register
-{% endblock %}
 
 {% block body %}
 	{% for flashError in app.flashes('verify_email_error') %}

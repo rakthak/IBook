@@ -1,10 +1,6 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}IBOOK
-{% endblock %}
+{% extends "base.html.twig" %}
 
 {% block body %}
-
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
 		<div class="container-fluid">
@@ -16,13 +12,14 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="{{ path ('allBooks')}}">LIVRES</a>
+						<a class="nav-link active" aria-current="page" href="{{ path ('allBooks')}}">Livres</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path ('book')}}">Nouveaux livres</a>
+					</li>
+
+					<li class="d-flex">
 						<a class="nav-link active" aria-current="page" href="{{ path ('app_logout')}}">DECONNEXION</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="{{ path ('admin')}}">ADMINISTRATION</a>
 					</li>
 				</ul>
 
@@ -31,11 +28,11 @@
 	</nav>
 
 	<center>
-		<h1>Les derniers ajouts de livres</h1>
+		<h1>Tous les livres</h1>
 	</center>
 
 	<div class="row justify-content-md-center mt-4 cardHeight ">
-		{% for book in lastBooks %}
+		{% for book in books %}
 			<div class="col-3  mb-4">
 				<div class="card mb-4 cardHeight">
 					<h4 class="card-header text-center bg-primary">{{book.title}}
@@ -68,8 +65,6 @@
 			</div>
 		{% endfor %}
 	</div>
-
-
 {% endblock %}
 
 {% block javascripts %}

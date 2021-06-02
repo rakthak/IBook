@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\User;
 use App\Entity\Book;
+use App\Entity\BookLike;
 use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -21,8 +22,11 @@ class AppFixtures extends Fixture
     }
     public function load(ObjectManager $manager)
     {
+
+        $users = [];
         //Création d'un user
         $faker = Factory::create('fr_FR');
+
 
         for ($h = 0; $h < 10; $h++) {
             $user = new User();
@@ -33,6 +37,7 @@ class AppFixtures extends Fixture
             $user->setPassword($password);
 
             $manager->persist($user);
+            $users[] = $user;
         }
 
 
@@ -51,9 +56,15 @@ class AppFixtures extends Fixture
                     ->setAuthor($faker->name())
                     ->setImage("https://picsum.photos/500")
                     ->setResume($faker->realText($maxNbChars = 200, $indexSize = 2))
-                    ->setCreatedAt(new \DateTime())
+                    ->setCreatedAt($faker->dateTimeBetween('-3 month', 'now'))
                     ->setUser($user);
                 $manager->persist($book);
+                for ($k = 0; $k < mt_rand(0, 20); $k++) {
+                    $like = new BookLike();
+                    $like->setBook($book)
+                        ->setUser($faker->randomElement($users));
+                    $manager->persist($like);
+                }
             }
         }
 

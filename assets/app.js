@@ -15,6 +15,6 @@ import { Tooltip, Toast, Popover } from 'bootstrap';
 import './bootstrap';
 
 import './js/main';
-import './js/popper';
-import './js/portFolio';
+//import './js/popper';
+//import './js/portFolio';
 

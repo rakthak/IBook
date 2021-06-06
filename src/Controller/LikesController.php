@@ -18,11 +18,12 @@ class LikesController extends AbstractController
 {
     /**
      * cette fonction permet de liké ou disliké un book
+     * en étant connecté à son compte
      * 
      */
     #[Route('/book/{id}/like', name: 'liker')]
     public function like(Book $book, EntityManagerInterface $manager, BookLikeRepository $bookLikeRepository): Response
-    {
+    { //affichera un code erreur si la personne n'est pas connecté
         $user = $this->getUser();
         if (!$user) return $this->json([
             'code' => 403,
@@ -36,14 +37,14 @@ class LikesController extends AbstractController
             ]);
             $manager->remove($like);
             $manager->flush();
-
+            //affichera un message au format json dans une nouvelle page
             return $this->json([
                 'code' => 200,
                 'message' => 'le like est supprimé',
                 'likes' => $bookLikeRepository->count(['book' => $book])
             ], 200);
         }
-
+        //affichera un message quand il sera liké
         $like = new BookLike();
         $like->setBook($book)
             ->setUser($user);

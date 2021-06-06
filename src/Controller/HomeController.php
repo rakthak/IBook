@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
-{
+{ //chemin vers la page index
     #[Route('/', name: 'home')]
     public function index(): Response
     {

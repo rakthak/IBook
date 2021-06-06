@@ -23,7 +23,7 @@ class BookRepository extends ServiceEntityRepository
     // /**
     //  * @return Book[] Returns an array of Book objects
     //  */
-    //retourne les dernieres publication de livres
+    //retourne les dernieres publications
     public function lastBook()
     {
         return $this->createQueryBuilder('k')

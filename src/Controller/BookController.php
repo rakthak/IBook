@@ -41,7 +41,6 @@ class BookController extends AbstractController
     {
         $book = $this->getDoctrine()->getRepository(Book::class)->find($id);
 
-
         if (!$book) {
             return $this->redirectToRoute('book');
         }

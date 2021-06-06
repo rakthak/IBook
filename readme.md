@@ -1,6 +1,8 @@
 # IBOOK
 
-IBOOK est bibliothèque de livres. On doit être inscrit pour pouvoir se connecter et ainsi lire les livres  
+L’ application IBOOK est un site de bibliothèque, où les visiteurs peuvent lire leurs livres préférés. Pour lire des livres, tous les visiteurs doivent créer un compte et se connecter à leur compte. Une fois connectés, ils peuvent lire et aimer tous les livres qu'ils veulent. Et dans l'application il y a des pages dédiées pour l'administrateur, où il/elle peut ajouter, éditer et supprimer les livres et autres informations.
+et bien entendu seul l'administrateur valide a le droit d'apporter les modifications après l'authentification du compte.
+  
 
 ## Environnement de développement
 
@@ -33,7 +35,7 @@ symfony console make:entity
 ```
 ### c)Création des requêtes dans la migration
 ```
-symfony console make:migartion
+symfony console make:migration
 ```
 ### d)Création des tables dans phpMyAdmin
 ```
@@ -41,4 +43,7 @@ php bin/console doctrine:migrations:migrate
 ```
 
 ## Mise en place  de l'authentification
+
+```
+php bin/console make:auth
 ```

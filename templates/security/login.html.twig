@@ -31,6 +31,7 @@
 							</div>
 							<form method="post">
 								{% if error %}
+									<!--affichera un mesage d'erreur avec security-->
 									<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 								{% endif %}
 
